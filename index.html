@@ -182,30 +182,22 @@
 </template>
 
 <script>
-  // определяем размер фаербола
   var fireballSize = 22;
 
-  // устанавливаем скорость фаербола в зависимости от направления ветра
-  var getFireballSpeed = function (left) {
+   function getFireballSpeed (left) {
     return left ? 5 : 2;
   };
-  getFireballSpeed(true);
 
-  //устанавливаем скорость и ширину Пендальфа
   var wizardSpeed = 3;
   var wizardWidth = 70;
 
-  // и пропорциональную высоту мага
   var getWizardHeight = function () {
     return 1.337 * wizardWidth;
   };
 
-  // помещаем мага в центр по горизонтали
   var getWizardX  = function (width) {
     return width / 2.3;
   };
-
-  // помещаем мага в центр по вертикали
   var getWizardY  = function (height) {
     return height / 3;
   };
