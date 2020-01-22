@@ -24,12 +24,12 @@ var BAR_COLOR = 'rgba(255, 0, 0, 1)';
 
 var MESSAGES_TEXT = ['Ура вы победили!', 'Список результатов:'];
 
-var renderMessages = function (ctx, messagesArr, font, fontColor, baseline, x, y, lineHeight) {
-  for (var i = 0; i < messagesArr.length; i++) {
-    ctx.fillStyle = fontColor;
-    ctx.font = font;
-    ctx.textBaseline = baseline;
-    ctx.fillText(messagesArr[i], x, y + lineHeight * i);
+var renderMessages = function (ctx) {
+  for (var i = 0; i < MESSAGES_TEXT.length; i++) {
+    ctx.fillStyle = TEXT_COLOR;
+    ctx.font = TEXT_FONT;
+    ctx.textBaseline = TEXT_BASELINE;
+    ctx.fillText(MESSAGES_TEXT[i], CLOUD_X + TEXT_GAP, CLOUD_Y + TEXT_GAP + TEXT_GAP * i);
   }
 };
 
@@ -58,7 +58,7 @@ window.renderStatistics = function (ctx, players, times) {
   renderCloud(ctx, CLOUD_X + CLOUD_GAP, CLOUD_Y + CLOUD_GAP, CLOUD_SHADOW);
   renderCloud(ctx, CLOUD_X, CLOUD_Y, CLOUD_COLOR);
 
-  renderMessages(ctx, MESSAGES_TEXT, TEXT_FONT, TEXT_COLOR, TEXT_BASELINE, CLOUD_X + TEXT_GAP, CLOUD_Y + TEXT_GAP, TEXT_GAP);
+  renderMessages(ctx);
 
   var maxTime = getMaxItem(times);
   var barHeight;
