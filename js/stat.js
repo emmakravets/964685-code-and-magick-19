@@ -41,7 +41,7 @@ var renderCloud = function (ctx, x, y, color) {
 var generateRandomColor = function () {
   var randomColor = 'hsl(240, ' + Math.floor(Math.random() * 100) + '%, 50%)';
   return randomColor;
-}
+};
 // находим макс. время
 var getMaxItem = function (arr) {
   var maxItem = arr[0];
