@@ -42,13 +42,13 @@ var generateRandomColor = function () {
   var randomColor = 'hsl(240, ' + Math.floor(Math.random() * 100) + '%, 50%)';
   return randomColor;
 };
-// находим макс. время
-var getMaxItem = function (arr) {
-  var maxItem = arr[0];
 
-  for (var i = 0; i < arr.length; i++) {
-    if (arr[i] > maxItem) {
-      maxItem = arr[i];
+var getMaxItem = function (items) {
+  var maxItem = items[0];
+
+  for (var i = 0; i < items.length; i++) {
+    if (items[i] > maxItem) {
+      maxItem = items[i];
     }
   }
   return maxItem;
