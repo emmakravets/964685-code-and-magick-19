@@ -15,7 +15,7 @@ var getRandomData = function (items) {
   return randomDataAttribute;
 };
 
-//var wizardFullName = getRandomData(WIZARD_FIRST_NAMES ).concat(getRandomData(WIZARD_SECOND_NAMES));
+// var wizardFullName = getRandomData(WIZARD_FIRST_NAMES ).concat(getRandomData(WIZARD_SECOND_NAMES));
 
 var similarWizards = [
   {
@@ -54,6 +54,6 @@ var generateWizard = function (wizard) {
 var fragment = document.createDocumentFragment();
 for (var i = 0; i < similarWizards.length; i++) {
   fragment.appendChild(generateWizard(similarWizards[i]));
-};
+}
 similarListElement.appendChild(fragment);
 setup.querySelector('.setup-similar').classList.remove('hidden');
