@@ -7,7 +7,7 @@ var WIZARD_EYE_COLOR = ['black', 'red', 'blue', 'yellow', 'green'];
 var WIZARD_LIMIT = 4;
 
 
-var getRandomItem = function(items) {
+var getRandomItem = function (items) {
   return items[Math.floor(Math.random() * items.length)];
 };
 
@@ -25,21 +25,20 @@ var generateRandomWizards = function () {
   for (var i = 0; i < WIZARD_LIMIT; i++) {
     wizards.push(generateRandomWizard());
   }
-  
   return wizards;
 };
 
 var createWizardElement = function (wizard) {
   var wizardElement = wizardTemplateElement.cloneNode(true);
-  
+
   wizardElement.querySelector('.setup-similar-label').textContent = wizard.name;
   wizardElement.querySelector('.wizard-coat').style.fill = wizard.coatColor;
   wizardElement.querySelector('.wizard-eyes').style.fill = wizard.eyesColor;
-  
+
   return wizardElement;
 };
 
-var renderWizards = function(wizards) {
+var renderWizards = function (wizards) {
   var fragment = document.createDocumentFragment();
 
   for (var i = 0; i < wizards.length; i++) {
@@ -47,7 +46,7 @@ var renderWizards = function(wizards) {
   }
 
   similarListElement.appendChild(fragment);
-}
+};
 
 var wizards = generateRandomWizards();
 
