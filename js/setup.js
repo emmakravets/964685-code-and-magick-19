@@ -51,7 +51,7 @@ var renderWizards = function (wizards) {
   similarListElement.appendChild(fragment);
 };
 
-var popupPressEscapeHandler = function (evt) {
+var popupKeydownHandler = function (evt) {
   if (evt.key === ESC_KEY) {
     popupCloseHandler();
   }
@@ -59,12 +59,12 @@ var popupPressEscapeHandler = function (evt) {
 
 var popupOpenHandler = function () {
   setupElement.classList.remove('hidden');
-  document.addEventListener('keydown', popupPressEscapeHandler);
+  document.addEventListener('keydown', popupKeydownHandler);
 };
 
 var popupCloseHandler = function () {
   setupElement.classList.add('hidden');
-  document.removeEventListener('keydown', popupPressEscapeHandler);
+  document.removeEventListener('keydown', popupKeydownHandler);
 };
 
 var wizardCoatChangeHandler = function () {
