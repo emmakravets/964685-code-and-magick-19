@@ -138,8 +138,7 @@ var validateUserNameInput = function () {
 };
 
 userNameInputElement.addEventListener('invalid', function () {
-  var validationMessage = validateUserNameInput();
-  userNameInputElement.setCustomValidity(validationMessage);
+  userNameInputElement.setCustomValidity(validateUserNameInput());
 });
 
 setupWizardCoatElement.addEventListener('click', wizardCoatChangeHandler);
