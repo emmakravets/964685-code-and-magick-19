@@ -124,26 +124,24 @@ setupCloseElement.addEventListener('keydown', function (evt) {
   }
 });
 
-userNameInputElement.addEventListener('invalid', function () {
+var validateUserNameInput = function () {
   if (userNameInputElement.validity.tooShort) {
-    userNameInputElement.setCustomValidity('Имя пользователя должно состоять минимум из 2-х символов');
-  } else if (userNameInputElement.validity.tooLong) {
-    userNameInputElement.setCustomValidity('Имя пользователя не должно превышать 25-ти символов');
-  } else if (userNameInputElement.validity.valueMissing) {
-    userNameInputElement.setCustomValidity('Вы пропустили это поле');
-  } else {
-    userNameInputElement.setCustomValidity('');
+    return 'Имя пользователя должно состоять минимум из 2-х символов';
   }
+  if (userNameInputElement.validity.tooLong) {
+    return 'Имя пользователя не должно превышать 25-ти символов';
+  }
+  if (userNameInputElement.validity.valueMissing) {
+    return 'Вы пропустили это поле';
+  }
+  return '';
+};
+
+userNameInputElement.addEventListener('invalid', function () {
+  var validationMessage = validateUserNameInput();
+  userNameInputElement.setCustomValidity(validationMessage);
 });
 
-setupWizardCoatElement.addEventListener('click', function () {
-  wizardCoatChangeHandler();
-});
-
-setupWizardEyesElement.addEventListener('click', function () {
-  wizardEyesChangeHandler();
-});
-
-setupWizardFireballElement.addEventListener('click', function () {
-  wizardFireballChangeHandler();
-});
+setupWizardCoatElement.addEventListener('click', wizardCoatChangeHandler);
+setupWizardEyesElement.addEventListener('click', wizardEyesChangeHandler);
+setupWizardFireballElement.addEventListener('click', wizardFireballChangeHandler);
